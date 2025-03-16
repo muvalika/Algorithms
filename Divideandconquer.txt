@@ -1,0 +1,57 @@
+Plotting a graph using diving and conquer method "quick sort", "merge sort". 
+
+import random
+import time
+import matplotlib.pyplot as plt
+
+def quick_sort(arr):
+  if len(arr) <=1:
+      return arr
+
+pivot=arr[len(arr)//2]
+left=[x for x in arr if x<pivot]
+right=[x for x in arr if x>pivot]
+middle=[x for x in arr if x==pivot]
+return quick_sort(left)+middle+quick_sort(right)
+
+def merge_sort(arr):
+if len(arr)<=1:
+ return arr
+mid=len(arr)//2
+return merge(left,right)
+
+def merge(left,right):
+result=[]
+i=j=0
+while i<len(left) and j<len(right)
+  if left[i]<right[j]:
+result.append(right[j])
+j+=1
+result+=left[I:]
+result+=right[j:]
+return result
+def plot_graph(x_values, y_values, algorithm_name):
+plt.plot(x_values, y_values, label=algorithm_name)
+plt.xlabel('Number of elements(n)')
+plt.ylabel('time seconds')
+plt.legend()
+plt.show()
+
+def main():
+n_values=[1000,2000,3000,4000,5000]
+quick_sort_times=[]
+merge_sort_times=[]
+for n in n_values:
+  data=generate_data(n)
+quick_sort_time=measure_time_complexity(quick_sort,data)
+quick_sort_times.append(quick_sort_time)
+
+merge_sort_time=measure_time_complexity(merge_sort,data)
+merge_sort_times.append(merge_sort_time)
+
+plot_graph(n_values, quick_sort_times, 'quick sort')
+plot_graph(n_values, merge_sort_times, 'merge sort')
+
+if_name_=="_main_":
+main()
+
